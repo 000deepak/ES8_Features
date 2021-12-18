@@ -1,11 +1,11 @@
 //ES8  Features
+
 //1. Object.values()  //return an array having object values.exactly opposite of Object.keys().
-//2. Object.entries() //return an array having object values.
+//2. Object.entries() //return an array having object key-value pairs.
 //3. String padding (padStart() and padEnd())
 //4. Object.getOwnPropertyDescriptors()
 //5. Trailing commas in function parameter lists and calls
 //6. Async functions (async and await)
-//7. Shared memory and atomics
 
 //-----------------------Object.entries()
 var fruits = {
@@ -17,6 +17,10 @@ for (var [key, val] of Object.entries(fruits)) {
   console.log(key, val);
 }
 //Output:apple 10 orange 20
+
+//Object.keys() returns array of keys
+console.log( Object.keys(fruits)) 
+//o/p  [ 'apple', 'orange' ]
 
 //-----------------------object.values
 var fruits = {
@@ -44,13 +48,6 @@ Object.values(fruits)
 "cat".padEnd(5, "abc"); // 'catab'
 "cat".padEnd(8, "abc"); // 'catabcab'
 
-//example get todays date
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, "0");
-var mm = String(today.getMonth() + 1).padStart(2, "0");
-var yyyy = today.getFullYear();
-today = mm + "/" + dd + "/" + yyyy;
-console.log(today);
 
 //Output: 02/17/2020 (today date in mm/dd/yyyy format)
 
@@ -69,3 +66,12 @@ function add(
   one,
   two, // It is valid
 ) {}
+
+
+//----------------------------------------getownproperty
+var counterArray = {
+  A : 3,
+  B : 4
+};
+counterArray["C"] = 1;
+Object.getOwnPropertyNames(counterArray).length; // Output 3
